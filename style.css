@@ -1,0 +1,111 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* Grid Areas */
+.header {
+  grid-area: header;
+  background: var(--header-bg);
+  color: var(--header-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-color);
+  padding: 1rem;
+}
+
+.main {
+  grid-area: main;
+  padding: 2rem;
+  background: var(--main-bg);
+  color: var(--main-color);
+}
+
+.footer {
+  grid-area: footer;
+  background: var(--footer-bg);
+  color: var(--footer-color);
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Sidebar navigation */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+/* Theme Variables */
+.light-theme {
+  --header-bg: #f5f5f5;
+  --header-color: #222;
+  --sidebar-bg: #e0e0e0;
+  --sidebar-color: #000;
+  --main-bg: #fff;
+  --main-color: #000;
+  --footer-bg: #f0f0f0;
+  --footer-color: #333;
+}
+
+.dark-theme {
+  --header-bg: #1f1f1f;
+  --header-color: #fff;
+  --sidebar-bg: #2c2c2c;
+  --sidebar-color: #eee;
+  --main-bg: #181818;
+  --main-color: #ddd;
+  --footer-bg: #1a1a1a;
+  --footer-color: #bbb;
+}
+
+/* Toggle Button */
+#theme-toggle {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  background: #0077ff;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    text-align: center;
+  }
+}
